@@ -18,7 +18,7 @@ Endereço de Deploy - GitHub Pages
 * a definir 
 
 Protótipo
-* a definir 
+* https://www.figma.com/file/JhETKXbGf6E1IrxwO4NBuO/Meus-Certificados-App?type=design&t=F03m4jJIR0KwS5vr-6
 
 Checklist
 (x)Criar o repositório no GitHub com a estrutura do Gitflow, ou seja, branches main e develop;      
