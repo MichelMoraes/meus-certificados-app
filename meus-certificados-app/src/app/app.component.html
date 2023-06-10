@@ -1,5 +1,25 @@
-<span>{{ title }} app is running!</span>
 
-<app-primeiro-modulo-subtitulo-inicial></app-primeiro-modulo-subtitulo-inicial>
+<!– menu –>
+<header>
+    <app-terceiro-componente-navbar-materialize></app-terceiro-componente-navbar-materialize>
+</header>
+<!– menu –>
 
-<app-segundo-modulo-list-certificados></app-segundo-modulo-list-certificados>
+
+<!– conteudo –>
+<main>
+    <router-outlet>    
+    </router-outlet>
+    
+    <span>{{ title }} app is running! </span>
+
+    <app-primeiro-modulo-subtitulo-inicial></app-primeiro-modulo-subtitulo-inicial>
+
+    <app-segundo-modulo-list-certificados></app-segundo-modulo-list-certificados>
+
+</main>
+
+<!– rodapé –>
+<footer>
+    <app-footer></app-footer>
+</footer>

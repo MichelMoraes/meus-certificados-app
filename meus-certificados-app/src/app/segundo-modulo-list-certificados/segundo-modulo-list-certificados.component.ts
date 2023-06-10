@@ -13,4 +13,6 @@ export class SegundoModuloListCertificadosComponent {
   constructor() {
     this.linguagens = ["Java", "C++", "Delphi", "PHP", "Perl"];
   }
+  isDisabled= true;
+  title = 'Meus Certificados APP';
 }
