@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import * as M from "materialize-css";
 
 @Component({
@@ -6,7 +6,13 @@ import * as M from "materialize-css";
   templateUrl: './terceiro-componente-navbar-materialize.component.html',
   styleUrls: ['./terceiro-componente-navbar-materialize.component.scss']
 })
-export class TerceiroComponenteNavbarMaterializeComponent {
+export class TerceiroComponenteNavbarMaterializeComponent implements AfterViewInit{
  
+   @ViewChild('mobile')  sidenav? : ElementRef;
+
+   ngAfterViewInit(): void {
+       M.Sidenav.init(this.sidenav?.nativeElement);
+   }
+
  
 }
