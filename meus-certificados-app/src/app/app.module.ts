@@ -7,6 +7,7 @@ import { PrimeiroModuloSubtituloInicialComponent } from './primeiro-modulo-subti
 import { SegundoModuloListCertificadosComponent } from './segundo-modulo-list-certificados/segundo-modulo-list-certificados.component';
 import { TerceiroComponenteNavbarMaterializeComponent } from './terceiro-componente-navbar-materialize/terceiro-componente-navbar-materialize.component';
 import { FooterComponent } from './footer/footer.component';
+import { QuartoComponenteTelaCadastroComponent } from './quarto-componente-tela-cadastro/quarto-componente-tela-cadastro.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { FooterComponent } from './footer/footer.component';
     PrimeiroModuloSubtituloInicialComponent,
     SegundoModuloListCertificadosComponent,
     TerceiroComponenteNavbarMaterializeComponent,
-    FooterComponent
+    FooterComponent,
+    QuartoComponenteTelaCadastroComponent
   ],
   imports: [
     BrowserModule,
