@@ -1,25 +1,26 @@
-
 <!– menu –>
-<header>
-    <app-terceiro-componente-navbar-materialize></app-terceiro-componente-navbar-materialize>
-</header>
-<!– menu –>
+    <header>
+        <app-terceiro-componente-navbar-materialize></app-terceiro-componente-navbar-materialize>
+    </header>
+    <!– menu –>
 
 
-<!– conteudo –>
-<main>
-    <router-outlet>    
-    </router-outlet>
-    
-    <span>{{ title }} app is running! </span>
 
-    <app-primeiro-modulo-subtitulo-inicial></app-primeiro-modulo-subtitulo-inicial>
 
-    <app-segundo-modulo-list-certificados></app-segundo-modulo-list-certificados>
+        <!--main-->
+        <main>
+            <router-outlet></router-outlet>
+        </main>
+        <!--fim main-->
 
-</main>
 
-<!– rodapé –>
-<footer>
-    <app-footer></app-footer>
-</footer>
+<br>
+
+
+<br>
+
+        <!-- footer -->
+        <app-footer>
+            <span style="font-weight: bold"></span>
+        </app-footer>
+        <!-- fim footer-->

@@ -1,15 +1,37 @@
-<p>Segundo-modulo-list-certificados ( Componente 2 incluído )</p>
-<p>Uso de DataBinding/p>
-
-<ul *ngFor="let linguagem of linguagens">
-    <li>{{ linguagem }}</li>
-</ul>
+<p>Modulo-list-certificados </p>
 
 
-<br>   
-<br> 
+<table>
+    <thead>
+        <tr>
+            <th data-field="td-id">Id</th>
+            <th data-field="td-nome">Nome</th>
+            <th data-field="td-tecnologia">Tecnologia</th>
+            <th data-field="td-url">Url</th>
+        </tr>
+    </thead>
 
-<p>Example de uso de Data Binding com property<p>
-<button [disabled]="isDisabled"> Eu sou um Botão Desabilitado com uso de DataBinding Property</button>
-<br> 
-<span>{{ title }} app is running! Usando DataBinding Interpolation no Título </span>
+    <tbody>
+        <tr *ngFor="let dadosLinha of dados" (click)="onClickItem(dadosLinha)">
+            <td>{{dadosLinha.id}}</td>
+            <td>{{dadosLinha.nome}}</td>
+            <td>{{dadosLinha.tecnologia}}</td>
+            <td>{{dadosLinha.url}}</td>
+            
+
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+<br>
+<br>
+<button routerLink="/quarto-modulo" mat-button routerLinkActive="active">Novo Certificado </button>
+
+
+<br>
+<br>
+<br>
+<br>
