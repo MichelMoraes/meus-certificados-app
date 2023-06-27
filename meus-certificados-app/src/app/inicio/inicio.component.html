@@ -1,0 +1,38 @@
+
+<!– menu –>
+<header>
+    <app-terceiro-componente-navbar-materialize></app-terceiro-componente-navbar-materialize>
+</header>
+<!– menu –>
+
+
+<!– conteudo –>
+<main>
+    
+    <span>{{ title }} app is running!  -  Atividade 09  </span>
+    <br>
+
+    <span>  * Mapear componentes à rotas no módulo de rotas. </span>
+    <br>
+    <span>  * Criar navegação entre páginas por meio de rotas. </span>
+    <br>
+    <span>  * Passar dados via hierarquia de componentes, ou seja, usando @Input ou @Output. </span>
+    <br>
+    <span>  * Passar dados entre componentes que representam diferentes telas via parâmetros de rotas. </span>
+        
+        
+        
+
+   
+    <app-primeiro-modulo-subtitulo-inicial></app-primeiro-modulo-subtitulo-inicial>
+   
+    <app-segundo-modulo-list-certificados [dados]="dados"></app-segundo-modulo-list-certificados>
+
+</main>
+
+
+
+<!– rodapé –>
+<footer>
+    <app-footer></app-footer>
+</footer>

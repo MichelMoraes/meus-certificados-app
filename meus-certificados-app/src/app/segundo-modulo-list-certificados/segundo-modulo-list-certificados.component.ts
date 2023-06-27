@@ -19,4 +19,4 @@ export class SegundoModuloListCertificadosComponent {
   clicked = true;
 }
 
-export class ButtonOverviewExample {}
+
