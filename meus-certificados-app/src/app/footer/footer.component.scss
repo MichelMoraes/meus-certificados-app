@@ -3,9 +3,17 @@ body {
     min-height: 100vh;
     flex-direction: column;
     color: darkgoldenrod;
+    bottom: 0;
+    position:static;
+
   }
 
   main {
     flex: 1 0 auto;
   }
+
+  footer {
+    bottom: 0;
+  }
+
 

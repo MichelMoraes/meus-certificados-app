@@ -11,6 +11,8 @@ import { FooterComponent } from './footer/footer.component';
 import { QuartoComponenteTelaCadastroComponent } from './quarto-componente-tela-cadastro/quarto-componente-tela-cadastro.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { CertificadoComponent } from './certificado/certificado.component';
+import { QuintoComponenteTelaEdicaoComponent } from './quinto-componente-tela-edicao/quinto-componente-tela-edicao.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { InicioComponent } from './inicio/inicio.component';
     FooterComponent,
     QuartoComponenteTelaCadastroComponent,
     PageNotFoundComponent,
-    InicioComponent
+    InicioComponent,
+    CertificadoComponent,
+    QuintoComponenteTelaEdicaoComponent
   ],
   imports: [
     BrowserModule,

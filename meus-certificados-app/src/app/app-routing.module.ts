@@ -6,6 +6,7 @@ import { TerceiroComponenteNavbarMaterializeComponent } from './terceiro-compone
 import { QuartoComponenteTelaCadastroComponent } from './quarto-componente-tela-cadastro/quarto-componente-tela-cadastro.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { QuintoComponenteTelaEdicaoComponent } from './quinto-componente-tela-edicao/quinto-componente-tela-edicao.component';
 
 
 const  routes: Routes = [
@@ -13,6 +14,7 @@ const  routes: Routes = [
   { path: 'segundo-modulo', component: SegundoModuloListCertificadosComponent},
   { path: 'terceiro-modulo', component: TerceiroComponenteNavbarMaterializeComponent},
   { path: 'quarto-modulo', component: QuartoComponenteTelaCadastroComponent},  
+  { path: 'quinto-modulo/:id', component: QuintoComponenteTelaEdicaoComponent}, 
   { path: 'inicio', component: InicioComponent},  
   { path: '', redirectTo: '/inicio', pathMatch: 'full'},
   { path : '**', component : PageNotFoundComponent    }
