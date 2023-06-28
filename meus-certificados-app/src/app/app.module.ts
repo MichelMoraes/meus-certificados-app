@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
+import { FormControl, FormGroup, Validators, ReactiveFormsModule, FormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { InicioComponent } from './inicio/inicio.component';
 import { CertificadoComponent } from './certificado/certificado.component';
 import { QuintoComponenteTelaEdicaoComponent } from './quinto-componente-tela-edicao/quinto-componente-tela-edicao.component';
+import { CustomFormComponent } from './custom-form/custom-form.component';
+
 
 @NgModule({
   declarations: [
@@ -25,11 +28,15 @@ import { QuintoComponenteTelaEdicaoComponent } from './quinto-componente-tela-ed
     PageNotFoundComponent,
     InicioComponent,
     CertificadoComponent,
-    QuintoComponenteTelaEdicaoComponent
+    QuintoComponenteTelaEdicaoComponent,    
+    CustomFormComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

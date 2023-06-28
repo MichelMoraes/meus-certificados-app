@@ -1,0 +1,53 @@
+<form [formGroup]="customForm" (ngSubmit)="enviarFormulario()">
+  <div>
+    <label for="campo1">Id:</label>
+    <input type="text" id="campo1" formControlName="campo1">
+    <div *ngIf="customForm.controls['campo1'].invalid && 
+    customForm.controls['campo1'].touched">
+      <div *ngIf="customForm.controls['campo1'].errors && 
+      customForm.controls['campo1'].errors['required']">Campo Id é obrigatório.</div>
+      <div *ngIf="customForm.controls['campo1'].errors &&
+      customForm.controls['campo1'].errors['pattern']">Campo Id deve conter apenas números.</div>
+    </div>
+  </div>
+
+  <div>
+    <label for="campo2">Nome:</label>
+    <input type="text" id="campo2" formControlName="campo2">
+    <div *ngIf="customForm.controls['campo2'].invalid && 
+    customForm.controls['campo2'].touched">
+      <div *ngIf="customForm.controls['campo2'].errors &&
+      customForm.controls['campo2'].errors['required']">Campo Nome é obrigatório.</div>
+      <div *ngIf="customForm.controls['campo2'].errors &&
+      customForm.controls['campo2'].errors['pattern']">Campo Nome deve conter apenas letras.</div>
+    </div>
+  </div>
+
+  <div>
+    <label for="campo3">Tecnologia:</label>
+    <input type="text" id="campo3" formControlName="campo3">
+    <div *ngIf="customForm.controls['campo3'].invalid && 
+    customForm.controls['campo3'].touched">
+      <div *ngIf="customForm.controls['campo3'].errors &&
+      customForm.controls['campo3'].errors['required']">Campo tecnologia é obrigatório.</div>
+      <div *ngIf="customForm.controls['campo3'].errors &&
+      customForm.controls['campo3'].errors['pattern']">Campo tecnologia deve conter apenas letras.</div>
+    </div>
+  </div>
+
+  <div>
+    <label for="campo4">URL:</label>
+    <input type="text" id="campo4" formControlName="campo4">
+    <div *ngIf="customForm.controls['campo4'].invalid && 
+    customForm.controls['campo4'].touched">
+      <div *ngIf="customForm.controls['campo4'].errors &&
+      customForm.controls['campo4'].errors['required']">Campo URL é obrigatório.</div>
+      <div *ngIf="customForm.controls['campo4'].errors &&
+      customForm.controls['campo4'].errors['pattern']">Campo URL deve ser uma URL válida.</div>
+    </div>
+  </div>
+
+  <br>
+
+  <button type="submit" [disabled]="customForm.invalid" routerLink="/inicio">Cadastrar</button>
+</form>
