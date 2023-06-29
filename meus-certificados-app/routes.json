@@ -1,4 +1,5 @@
 {
-    "/certificados": "/certificados"
+    "/certificados": "/certificados",
+    "/certificados:id": "/certificados/$id"
  
   }
