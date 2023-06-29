@@ -1,1 +1,44 @@
-<p>certificado works!</p>
+<h5>Certificados cadastrados</h5>
+<!-- Tabela de Certificados cadastrados -->
+
+
+<br>
+<br>
+<button routerLink="/quarto-modulo" mat-button   class="btn waves-effect waves-light amber darken-3"
+routerLinkActive="active">Novo Certificado </button>
+
+<table class="highlight" *ngIf="certificados && certificados!.length > 0">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Nome</th>
+      <th>Tecnologia</th>
+      <th>Url</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let c of certificados">
+      <td>{{ c.id }}</td>
+      <td>{{ c.nome }}</td>
+      <td>{{ c.tecnologia }}</td>
+      <td>{{ c.url }}</td>
+      <td class="right">
+        <a
+          ><i class="material-icons my-icon-size" (click)="onEdit(c)" 
+          [routerLink]= "['/custom-form/',c.id]"
+            >edit</i
+          ></a
+        >
+        <a
+          ><i
+            class="material-icons my-icon-size"
+            (click)="onDelete(c.id)"
+            >delete</i
+          ></a
+        >
+      </td>
+    </tr>
+  </tbody>
+</table>

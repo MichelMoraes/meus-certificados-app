@@ -1,4 +1,4 @@
-<p>Modulo-list-certificados </p>
+<p>Relação de certificados cadastrados </p>
 
 
 <table>
@@ -12,7 +12,7 @@
     </thead>
 
     <tbody>
-        <tr *ngFor="let dadosLinha of dados" (click)="onClickItem(dadosLinha)">
+        <tr *ngFor="let dadosLinha of dados" >
             <td>{{dadosLinha.id}}</td>
             <td>{{dadosLinha.nome}}</td>
             <td>{{dadosLinha.tecnologia}}</td>
