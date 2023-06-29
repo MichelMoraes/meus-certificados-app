@@ -13,6 +13,8 @@ export class InicioComponent {
 
   showElement: boolean = true;
 
+  statusCode?: any;
+
   title = 'Meus Certificados APP';  
 
   dados: Array<{id: number, nome: string, tecnologia: string, url: string }> = [];
@@ -29,6 +31,7 @@ export class InicioComponent {
 
   ngOnInit() {
     this.certificados = this.certificadoService.getCertificados();
+    this.statusCode = this.certificadoService.getCertificadosObservable();
   }
     
    

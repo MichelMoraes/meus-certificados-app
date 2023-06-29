@@ -7,8 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "json:server" : "json-server --watch db.json",
-    "json:server:routes" : "json-server db.json --routes routes.json"
+    "json:server": "json-server --watch db.json",
+    "json:server:routes": "json-server db.json --routes routes.json"
   },
   "private": true,
   "dependencies": {

@@ -3,6 +3,7 @@ import { CertificadoService } from './certificado.service';
 import { Certificado } from './certificado.model';
 import { ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-certificado',
@@ -24,26 +25,30 @@ export class CertificadoComponent {
 
     isShowMessage = false;
     isSuccess = false;
-    message = "";
+  message = "";
+  statusCode?: any;
     
 
   constructor(private certificadoService: CertificadoService, private route : ActivatedRoute) { }
 
-  ngOnInit() {    
+  ngOnInit() {        
+
     this.certificado = new Certificado(0, '', '', '');    
     
     fetch('http://localhost:3000/certificados')
     .then(response => response.json())
-    .then(data => {
-      this.certificados = data;
-      // Processar os dados retornados
+      .then(data => {        
+      this.certificados = data;      
       console.log('Certificados encontrados:', data);
     })
-    .catch(error => {
-      // Tratar erro
+    .catch(error => {  
       console.error('Erro ao buscar certificados:', error);
       
-    });    
+    });       
+    
+    this.statusCode = this.certificadoService.getCertificadosObservable();
+    console.log("Satus code TS = " + this.certificadoService.getCertificadosObservable());
+
   }
 
   adicionarCertificado(certificado: any): void {
@@ -63,6 +68,7 @@ export class CertificadoComponent {
   onEdit(c: Certificado) {    
     let clone = Certificado.clone(c);
     this.certificado = clone;
+    this.statusCode = this.certificadoService.getCertificadosObservable();
   }
 
   onDelete(id: number) {
@@ -82,6 +88,8 @@ export class CertificadoComponent {
       this.message = 'Opa! O registro não pode ser removido!';
     }
     this.certificados = this.certificadoService.getCertificados();
+    this.statusCode = this.certificadoService.getCertificadosObservable();
+    
     
 
   }
@@ -118,6 +126,7 @@ export class CertificadoComponent {
       console.error('Erro ao cadastrar certificado:', error);
     });
 
+    this.statusCode = this.certificadoService.getCertificadosObservable();
     
   }
   
