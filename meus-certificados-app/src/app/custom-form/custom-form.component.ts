@@ -1,30 +1,91 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators, ReactiveFormsModule, FormBuilder  } from '@angular/forms';
+import { Component, ViewChild, OnInit, Input } from '@angular/core';
+import { NgForm  } from '@angular/forms';
+import { CertificadoService } from '../certificado/certificado.service';
+import { Certificado } from '../certificado/certificado.model';
+import { InitializeWebStorage } from '../util/initializeWebStorage';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-custom-form',
   templateUrl: './custom-form.component.html',
   styleUrls: ['./custom-form.component.scss']
 })
-export class CustomFormComponent {
-  customForm!: FormGroup;  
+export class CustomFormComponent implements OnInit {
+ 
+  @ViewChild('form') form!: NgForm;
+  
+  idParam = 0;
 
-  constructor(private formBuilder: FormBuilder) { }
+
+  certificado: Certificado = new Certificado(0,'', '', '');
+  //certificados?: Certificado[];
+  @Input() certificados ? : Certificado[];
+
+  constructor( private certificadoService: CertificadoService, private route : ActivatedRoute) { }
+
+  isShowMessage = false;
+  isSuccess = false;
+  message = "";
+
 
   ngOnInit() {
-    this.customForm = this.formBuilder.group({
-      campo1: ['', [Validators.required, Validators.pattern('\\d+')]],
-      campo2: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
-      campo3: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
-      campo4: ['', [Validators.required, Validators.pattern('/(https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z]{2,}(\.[a-zA-Z]{2,})(\.[a-zA-Z]{2,})?\/[a-zA-Z0-9]{2,}|((https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z]{2,}(\.[a-zA-Z]{2,})(\.[a-zA-Z]{2,})?)|(https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z0-9]{2,}\.[a-zA-Z0-9]{2,}\.[a-zA-Z0-9]{2,}(\.[a-zA-Z0-9]{2,})?/g')]],
-    });
+    //this.certificados = this.certificadoService.getCertificados();   
+    InitializeWebStorage.initializeWebStorage();
+    this.certificados = this.certificadoService.getCertificados();
+
+    this.idParam = +this.route.snapshot.paramMap.get('id')!;
+    let idParam: number = + this.route.snapshot.paramMap.get('id')!;
+    this.certificados =  this.certificados.filter(certificado => certificado.id === this.idParam);
+
+   // this.certificado = this.certificados[0];
+
+   
   }
 
-  enviarFormulario() {
-    if (this.customForm.valid) {
-     
-    }
+  enviarFormulario() {   
+      this.certificadoService.save(this.certificado);
+      console.log("PASSOU AQUI");
+      this.certificados = this.certificadoService.getCertificados();
+  
+  }
 
+  onEdit(c: Certificado) {    
+    let clone = Certificado.clone(c);
+    this.certificado = clone;
+  }
+
+  onDelete(id: number) {
+    let confirmation = window.confirm(
+      'Você tem certeza que deseja remover o registro com id:  ' + id + ' ?'
+    );
+    if (!confirmation) {
+      return;
+    }
+    let response: boolean = this.certificadoService.delete(id);
+
+    this.isShowMessage = true;
+    this.isSuccess = response;
+    if (response) {
+      this.message = 'O registro foi removido com sucesso!';
+    } else {
+      this.message = 'Opa! O registro não pode ser removido!';
+    }
+    this.certificados = this.certificadoService.getCertificados();
+  }
+  
+  onSubmit() {
+    
+    if (!this.certificadoService.isExist(this.certificado.id)) {
+      this.certificadoService.save(this.certificado);
+    } else {
+      this.certificadoService.update(this.certificado);
+    }
+    this.isShowMessage = true;
+    this.isSuccess = true;
+    this.message = 'Cadastro realizado com sucesso!';
+    this.form.reset();
+    //this.certificado = new Certificado(0, '', '', '');
+    this.certificados = this.certificadoService.getCertificados();
   }
 
 
