@@ -19,6 +19,9 @@ yarn-error.log
 *.launch
 .settings/
 *.sublime-workspace
+*node_modules/*
+*meus-certificados-app/node_modules/*
+.bin
 
 # Visual Studio Code
 .vscode/*

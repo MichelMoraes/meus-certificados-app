@@ -31,7 +31,19 @@ export class CertificadoComponent {
 
   ngOnInit() {    
     this.certificado = new Certificado(0, '', '', '');    
-    this.certificados = this.certificadoService.getCertificados();
+    
+    fetch('http://localhost:3000/certificados')
+    .then(response => response.json())
+    .then(data => {
+      this.certificados = data;
+      // Processar os dados retornados
+      console.log('Certificados encontrados:', data);
+    })
+    .catch(error => {
+      // Tratar erro
+      console.error('Erro ao buscar certificados:', error);
+      
+    });    
   }
 
   adicionarCertificado(certificado: any): void {
@@ -70,6 +82,8 @@ export class CertificadoComponent {
       this.message = 'Opa! O registro não pode ser removido!';
     }
     this.certificados = this.certificadoService.getCertificados();
+    
+
   }
 
   onSubmit(certificado: any) {
@@ -84,10 +98,27 @@ export class CertificadoComponent {
     this.isShowMessage = true;
     this.isSuccess = true;
     this.message = 'Cadastro realizado com sucesso!';    
-    //this.certificado = new Certificado(0, '', '', '');
+    
     this.certificados = this.certificadoService.getCertificados();
 
-    console.log("Passou aqui");
+    fetch('http://localhost:3000/certificados', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(certificado)
+    })
+    .then(response => response.json())
+    .then(data => {
+      // Cadastro bem-sucedido
+      console.log('Certificado cadastrado com sucesso!');
+    })
+    .catch(error => {
+      // Tratar erro
+      console.error('Erro ao cadastrar certificado:', error);
+    });
+
+    
   }
   
 }
