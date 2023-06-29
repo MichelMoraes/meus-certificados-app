@@ -37,7 +37,12 @@ export class CustomFormComponent implements OnInit {
     let idParam: number = + this.route.snapshot.paramMap.get('id')!;
     this.certificados =  this.certificados.filter(certificado => certificado.id === this.idParam);
 
-   // this.certificado = this.certificados[0];
+    if ( idParam != 0 ) {
+      this.certificado = this.certificados[0];
+    } else {
+      this.certificado = new Certificado(0, '', '', '');
+    }
+    
 
    
   }
@@ -84,7 +89,7 @@ export class CustomFormComponent implements OnInit {
     this.isSuccess = true;
     this.message = 'Cadastro realizado com sucesso!';
     this.form.reset();
-    //this.certificado = new Certificado(0, '', '', '');
+    this.certificado = new Certificado(0, '', '', '');
     this.certificados = this.certificadoService.getCertificados();
   }
 

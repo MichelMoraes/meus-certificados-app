@@ -76,15 +76,18 @@ export class CertificadoComponent {
     
     if (!this.certificadoService.isExist(this.certificado.id)) {
       this.certificadoService.save(this.certificado);
+      console.log("Passou aqui no save");
     } else {
       this.certificadoService.update(this.certificado);
+      console.log("Passou aqui no update");
     }
     this.isShowMessage = true;
     this.isSuccess = true;
-    this.message = 'Cadastro realizado com sucesso!';
-    this.form.reset();
+    this.message = 'Cadastro realizado com sucesso!';    
     //this.certificado = new Certificado(0, '', '', '');
     this.certificados = this.certificadoService.getCertificados();
+
+    console.log("Passou aqui");
   }
   
 }

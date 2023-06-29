@@ -17,9 +17,11 @@ export class CertificadoService {
     
   }
 
-  save(certificado: Certificado) {   
+  save(certificado: Certificado) { 
+    console.log("passou aqui");
     this.certificados = WebStorageUtil.get(Constants.CERTIFICADO_KEY);   
     this.certificados.push(certificado);
+    console.log("passou aqui");
     WebStorageUtil.set(Constants.CERTIFICADO_KEY, this.certificados);
   }
 

@@ -20,12 +20,12 @@
     <input type="text" id="url" name="url" [(ngModel)]="certificado.url" required>
   </div>
 
-  <button type="submit"   routerLink="/inicio">Salvar </button>
+  <button type="submit"   routerLink="/inicio" (click)="onSubmit()">Salvar </button>
 </form>
 
 
 
-
+<!-- 
   <table class="highlight"   *ngFor="let c of certificados">
     <thead>
       <tr>
@@ -61,7 +61,7 @@
         
       </tr>
     </tbody>
-  </table>
+  </table> -->
   
 
 
