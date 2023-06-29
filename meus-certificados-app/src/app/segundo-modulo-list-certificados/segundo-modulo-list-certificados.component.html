@@ -1,0 +1,37 @@
+<p>Relação de certificados cadastrados </p>
+
+
+<table>
+    <thead>
+        <tr>
+            <th data-field="td-id">Id</th>
+            <th data-field="td-nome">Nome</th>
+            <th data-field="td-tecnologia">Tecnologia</th>
+            <th data-field="td-url">Url</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let dadosLinha of dados" >
+            <td>{{dadosLinha.id}}</td>
+            <td>{{dadosLinha.nome}}</td>
+            <td>{{dadosLinha.tecnologia}}</td>
+            <td>{{dadosLinha.url}}</td>
+            
+
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+<br>
+<br>
+<button routerLink="/quarto-modulo" mat-button routerLinkActive="active">Novo Certificado </button>
+
+
+<br>
+<br>
+<br>
+<br>
