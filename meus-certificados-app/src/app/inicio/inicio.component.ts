@@ -11,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
 
 export class InicioComponent {
 
+  showElement: boolean = true;
 
   title = 'Meus Certificados APP';  
 
