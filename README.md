@@ -45,9 +45,9 @@ Checklist
 
 (x)Desabilitar o botão de submit enquanto o formulário está inválido;
 
-()Fazer requisições a API com tratamento da resposta com Promises ou Observables;
+(x)Fazer requisições a API com tratamento da resposta com Promises ou Observables;
 
-()Cadastrar uma entidade no JSON Server;
+(x)Cadastrar uma entidade no JSON Server;
 
 ()Apresentar uma lista de dados com a diretiva estrutural ngFor;
 
