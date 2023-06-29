@@ -54,12 +54,10 @@ export class CertificadoService {
     
   })
   .then(response => response.json())
-  .then(data => {
-    // Cadastro bem-sucedido
+  .then(data => {    
     console.log('Certificado cadastrado com sucesso!');
   })
-  .catch(error => {
-    // Tratar erro
+  .catch(error => {   
     console.error('Erro ao cadastrar certificado:', error);
   });
 
