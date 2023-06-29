@@ -15,7 +15,7 @@ Adicionar um novo certificado;
 O frontend da aplicação será desenvolvida em Angular e o backend será simulado pela implementação de API Fake, usando o JSON Server.
 
 Endereço de Deploy - GitHub Pages
-* a definir 
+* https://michelmoraes.github.io/meus-certificados-app/inicio
 
 Protótipo
 * https://www.figma.com/file/JhETKXbGf6E1IrxwO4NBuO/Meus-Certificados-App?type=design&t=F03m4jJIR0KwS5vr-6
@@ -56,12 +56,12 @@ Checklist
 
 (x)Formatar a apresentação de dados com Pipes;   
 
-()Build e deploy da aplicação;
+(x)Build e deploy da aplicação;
 
 
 Instruções
 
 Fazer git clone do repositório
 Fazer checkout no branch develop.
-Executar o projeto Angular
-Comando: ng s
+Executar o projeto Angular: Comando: ng s
+Executar o JsonServer: npm run json:server:routes
