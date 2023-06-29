@@ -2,21 +2,40 @@ import { Injectable } from '@angular/core';
 import { WebStorageUtil } from 'src/app/util/web-storage-util';
 import { Certificado } from './certificado.model';
 import { Constants } from '../util/constants';
-
+import { Observable } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CertificadoService {
  
-
-
+  certificados$?: Observable<Certificado[]>;
   certificados: Certificado[];
-  certificado: Certificado = new Certificado(0,'', '', '');
+  certificado: Certificado = new Certificado(0, '', '', '');
+  statusCodeInterno? : number;
   
-  constructor() {
-    this.certificados = WebStorageUtil.get(Constants.CERTIFICADO_KEY);  
+  
+  constructor(private http: HttpClient) {
+    this.certificados = WebStorageUtil.get(Constants.CERTIFICADO_KEY);      
+  }
+
+  getCertificadosObservable() : any{    
+    const url = 'http://localhost:3000/certificados';    
+
+    this.http.get(url, { observe: 'response' }).subscribe(
+    (response: HttpResponse<any>) => {      
+        console.log('Status code:', response.status);
+        this.statusCodeInterno = response.status;         
+    },
+    (error: any) => {
+      console.error('Erro na requisição:', error);      
+      this.statusCodeInterno = error.status;
+      }    
+    );
     
+    return this.statusCodeInterno;
   }
 
   save(certificado: Certificado) { 
@@ -35,16 +54,14 @@ export class CertificadoService {
     
   })
   .then(response => response.json())
-  .then(data => {
-    // Cadastro bem-sucedido
+  .then(data => {    
     console.log('Certificado cadastrado com sucesso!');
   })
-  .catch(error => {
-    // Tratar erro
+  .catch(error => {   
     console.error('Erro ao cadastrar certificado:', error);
   });
 
-    
+    this.getCertificadosObservable();
   }
 
   update(certificado: Certificado) {
@@ -68,6 +85,7 @@ export class CertificadoService {
       console.error('Erro ao atualizar certificado:', error);
     });
 
+    this.getCertificadosObservable();
 
   }
 
@@ -92,6 +110,7 @@ export class CertificadoService {
     });
 
     this.getCertificados();
+    this.getCertificadosObservable();
     return true;
   }
 
@@ -107,9 +126,9 @@ export class CertificadoService {
     .catch(error => {      
       console.error('Erro ao buscar certificados:', error);
     });    
-
+    this.getCertificadosObservable();
     return this.certificados;
-
+    
 
   }
 

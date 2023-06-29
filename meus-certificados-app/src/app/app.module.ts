@@ -15,6 +15,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import { CertificadoComponent } from './certificado/certificado.component';
 import { QuintoComponenteTelaEdicaoComponent } from './quinto-componente-tela-edicao/quinto-componente-tela-edicao.component';
 import { CustomFormComponent } from './custom-form/custom-form.component';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { CustomFormComponent } from './custom-form/custom-form.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule   
    
   ],
   providers: [],

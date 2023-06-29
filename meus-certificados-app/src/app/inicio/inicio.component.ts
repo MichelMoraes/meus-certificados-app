@@ -11,6 +11,9 @@ import { Component, OnInit } from '@angular/core';
 
 export class InicioComponent {
 
+  showElement: boolean = true;
+
+  statusCode?: any;
 
   title = 'Meus Certificados APP';  
 
@@ -28,6 +31,7 @@ export class InicioComponent {
 
   ngOnInit() {
     this.certificados = this.certificadoService.getCertificados();
+    this.statusCode = this.certificadoService.getCertificadosObservable();
   }
     
    

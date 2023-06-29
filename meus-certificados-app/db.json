@@ -2,15 +2,9 @@
   "certificados": [
     {
       "id": 1,
-      "nome": "Spring Boot com Java",
-      "tecnologia": "Java",
-      "url": "www.site.com.br"
-    },
-    {
-      "id": 2,
       "nome": "michel moraes",
-      "tecnologia": "java salvou minha vida",
-      "url": "www.vfvfv"
+      "tecnologia": "dfdfd",
+      "url": "www.com"
     }
   ]
 }

@@ -49,11 +49,11 @@ Checklist
 
 (x)Cadastrar uma entidade no JSON Server;
 
-()Apresentar uma lista de dados com a diretiva estrutural ngFor;
+(x)Apresentar uma lista de dados com a diretiva estrutural ngFor;
 
-()Usar a diretiva ngIf; 
+(x)Usar a diretiva ngIf; 
 
-()Formatar a apresentação de dados com Pipes;   
+(x)Formatar a apresentação de dados com Pipes;   
 
 ()Build e deploy da aplicação;
 
