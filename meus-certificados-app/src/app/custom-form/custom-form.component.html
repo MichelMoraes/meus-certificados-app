@@ -1,26 +1,59 @@
-<form (ngSubmit)="onSubmit()">
+<form (ngSubmit)="onSubmit()" #form="ngForm">
   
   <div>
     <label for="id">ID:</label>
-    <input type="number" id="id" name="id" [(ngModel)]="certificado.id" required>
+    <input type="number" id="id" name="id" [(ngModel)]="this.certificado.id" required 
+    pattern="[0-9]+"    
+    #id="ngModel">
+    <div *ngIf="id?.invalid && id?.touched"  class="errorvalidation">
+      Por favor, informe um Id numérico.
+    </div>
+
   </div>
   
   <div>
-    <label for="nome">Nome:</label>
-    <input type="text" id="nome" name="nome" [(ngModel)]="certificado.nome" required>
+    <label for="nome">Nome *</label>  
+    <input type="text" id="nome" name="nome" [(ngModel)]="this.certificado.nome" required
+    #nome="ngModel"
+    pattern="[a-z\s]+$">
+
+    <div *ngIf="nome?.invalid && nome?.touched"  class="errorvalidation">
+      Por favor, informe o nome do curso.
+    </div>
+
   </div>
   
   <div>
     <label for="tecnologia">Tecnologia:</label>
-    <input type="text" id="tecnologia" name="tecnologia" [(ngModel)]="certificado.tecnologia" required>
+    <input type="text" id="tecnologia" name="tecnologia" [(ngModel)]="this.certificado.tecnologia" required
+    pattern="[a-z\s]+$"
+    #tecnologia="ngModel"
+
+
+   >
+    <div  *ngIf="tecnologia?.invalid && tecnologia?.touched"  class="errorvalidation">
+      Por favor, informe a tecnologia.
+    </div>
   </div>
   
   <div>
     <label for="url">URL:</label>
-    <input type="text" id="url" name="url" [(ngModel)]="certificado.url" required>
+    <input type="text" id="url" name="url" [(ngModel)]="this.certificado.url" required
+    
+    #url="ngModel"
+    
+    >
+    <div  *ngIf="url?.invalid && url?.touched" class="errorvalidation">
+      Por favor, informe a url.
+    </div>
   </div>
 
-  <button type="submit"   routerLink="/inicio" (click)="onSubmit()">Salvar </button>
+  <button type="submit" 
+     class="btn waves-effect waves-light amber darken-3"
+ 
+  [disabled]="form.invalid" 
+  
+  routerLink="/inicio" (click)="onSubmit()">Salvar </button>
 </form>
 
 

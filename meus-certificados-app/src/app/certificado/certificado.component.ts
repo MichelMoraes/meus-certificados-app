@@ -14,10 +14,10 @@ export class CertificadoComponent {
 
     @ViewChild('form') form!: NgForm;
 
-    @Input() id!: Number;  
-    @Input() nome!: String;
-    @Input() tecnologia!: String;
-    @Input() url!: String;  
+    @Input() id?:any;  
+    @Input() nome?:any;
+    @Input() tecnologia?:any;
+    @Input() url?:any;  
     
     certificados!: Certificado[];       
     certificado!: Certificado;

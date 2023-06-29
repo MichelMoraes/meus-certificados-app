@@ -88,7 +88,7 @@ export class CustomFormComponent implements OnInit {
     this.isShowMessage = true;
     this.isSuccess = true;
     this.message = 'Cadastro realizado com sucesso!';
-    this.form.reset();
+   // this.form.reset();
     this.certificado = new Certificado(0, '', '', '');
     this.certificados = this.certificadoService.getCertificados();
   }

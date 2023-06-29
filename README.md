@@ -41,9 +41,9 @@ Checklist
 
 (x)Passar dados entre componentes que representam diferentes telas via parâmetros de rotas;
 
-()Validar campos do formulário com REGEX e apresentar os erros;
+(x)Validar campos do formulário com REGEX e apresentar os erros;
 
-()Desabilitar o botão de submit enquanto o formulário está inválido;
+(x)Desabilitar o botão de submit enquanto o formulário está inválido;
 
 ()Fazer requisições a API com tratamento da resposta com Promises ou Observables;
 
