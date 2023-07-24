@@ -65,3 +65,15 @@ Fazer git clone do repositório
 Fazer checkout no branch develop.
 Executar o projeto Angular: Comando: ng s
 Executar o JsonServer: npm run json:server:routes
+
+![image](https://github.com/MichelMoraes/meus-certificados-app/assets/13774108/3334bc5f-c046-465f-8caa-67aba5c47330)
+
+![image](https://github.com/MichelMoraes/meus-certificados-app/assets/13774108/06f0f0bb-aa23-4a68-ad85-957a850f5914)
+
+![image](https://github.com/MichelMoraes/meus-certificados-app/assets/13774108/01dea6ca-c8e3-472a-8671-241e9e6e4796)
+
+![image](https://github.com/MichelMoraes/meus-certificados-app/assets/13774108/6b52ac43-c4ed-4627-808f-21b0f1db9df9)
+
+
+
+
